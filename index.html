@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prachi Dalvi — Product Management Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg: #fffdf8;
+    --surface: #ffffff;
+    --surface2: #f8f3eb;
+
+    --border: #ece6da;
+
+    --text: #343434;
+    --muted: #8a8a8a;
+
+    --accent: #d4a373;      /* Warm sand */
+    --accent2: #84a59d;     /* Sage teal */
+    --accent3: #e5989b;     /* Blush pink */
+
+    --heading: #1a1a1a;
+
+}
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 48px;
+    backdrop-filter: blur(12px);
+    background: rgba(255,253,248,0.9);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.2rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--text);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; place-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(244,185,66,0.06) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 50% at 20% 80%, rgba(78,205,196,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: center; max-width: 1100px; width: 100%;
+    position: relative; z-index: 1;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid rgba(244,185,66,0.3);
+    padding: 6px 14px; border-radius: 100px; margin-bottom: 24px;
+  }
+  .hero-tag span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1; color: var(--heading); margin-bottom: 20px;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 1.05rem; color: var(--muted); max-width: 440px;
+    line-height: 1.8; margin-bottom: 36px;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #0c0c0e;
+    font-size: 0.85rem; font-weight: 600;
+    padding: 12px 24px; border-radius: 8px;
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(244,185,66,0.3); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--border); color: var(--text);
+    font-size: 0.85rem; font-weight: 500;
+    padding: 12px 24px; border-radius: 8px;
+    text-decoration: none; transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* hero right */
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid var(--border); border-radius: 16px;
+    padding: 36px; position: relative; overflow: hidden;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(244,185,66,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-card-label {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 16px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .stat-item { background: var(--surface2); border-radius: 10px; padding: 16px; }
+  .stat-num {
+    font-family: 'Instrument Serif', serif; font-size: 2rem;
+    color: var(--accent); line-height: 1;
+  }
+  .stat-desc { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+  .skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: 0.75rem; font-weight: 500;
+    padding: 5px 12px; border-radius: 100px;
+    background: var(--surface2); color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .chip.accent { background: rgba(244,185,66,0.12); color: var(--accent); border-color: rgba(244,185,66,0.25); }
+  .chip.teal { background: rgba(78,205,196,0.1); color: var(--accent2); border-color: rgba(78,205,196,0.25); }
+
+  /* ── SECTIONS ── */
+  section { padding: 96px 48px; max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    font-family: 'JetBrains Mono', monospace; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--heading); line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-subtitle { font-size: 1rem; color: var(--muted); max-width: 540px; }
+  .section-header { margin-bottom: 56px; }
+  .divider { border: none; border-top: 1px solid var(--border); }
+
+  /* ── ABOUT ── */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: start; }
+  .about-body p { color: var(--muted); margin-bottom: 16px; line-height: 1.85; }
+  .about-body strong { color: var(--text); }
+  .about-aside { display: flex; flex-direction: column; gap: 20px; }
+  .aside-block {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px;
+  }
+  .aside-block h4 {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .aside-block p { font-size: 0.9rem; color: var(--muted); }
+  .skills-list { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* ── PROJECTS ── */
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .project-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 32px; position: relative;
+    transition: border-color 0.25s, transform 0.25s;
+    cursor: default; overflow: hidden;
+  }
+  .project-card:hover { border-color: rgba(244,185,66,0.4); transform: translateY(-3px); }
+  .project-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0; transition: opacity 0.25s;
+  }
+  .project-card:hover::after { opacity: 1; }
+  .project-type {
+    display: inline-block;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 100px;
+    margin-bottom: 16px;
+  }
+  .type-iot { background: rgba(78,205,196,0.1); color: var(--accent2); }
+  .type-web { background: rgba(244,185,66,0.1); color: var(--accent); }
+  .type-hw { background: rgba(255,107,107,0.1); color: var(--accent3); }
+  .project-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.35rem; color: var(--heading); margin-bottom: 12px; line-height: 1.3;
+  }
+  .project-card > p { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; line-height: 1.75; }
+  .prd-toggle {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.8rem; font-weight: 600; color: var(--accent);
+    letter-spacing: 0.04em; cursor: pointer; border: none; background: none;
+    padding: 0; transition: opacity 0.2s;
+  }
+  .prd-toggle:hover { opacity: 0.75; }
+  .prd-toggle svg { transition: transform 0.3s; }
+  .prd-toggle.open svg { transform: rotate(180deg); }
+  .prd-panel {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+  }
+  .prd-panel.open { max-height: 2000px; }
+  .prd-content {
+    margin-top: 20px;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+  }
+  .prd-section { margin-bottom: 20px; }
+  .prd-section h4 {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent2); margin-bottom: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .prd-section p, .prd-section li {
+    font-size: 0.85rem; color: var(--muted); line-height: 1.75;
+  }
+  .prd-section ul { padding-left: 16px; }
+  .prd-section li { margin-bottom: 4px; }
+  .meta-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; }
+  .meta-item { font-size: 0.78rem; font-family: 'JetBrains Mono', monospace; }
+  .meta-key { color: var(--muted); }
+  .meta-val { color: var(--text); font-weight: 500; }
+  .user-story-box {
+    background: var(--surface2); border-left: 3px solid var(--accent2);
+    border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 8px 0;
+    font-size: 0.83rem; color: var(--text); font-style: italic;
+  }
+  .outcome-badge {
+    display: inline-block;
+    background: rgba(78,205,196,0.1); color: var(--accent2);
+    border: 1px solid rgba(78,205,196,0.25);
+    font-size: 0.75rem; font-weight: 600;
+    padding: 4px 12px; border-radius: 100px; margin-right: 6px; margin-bottom: 6px;
+  }
+  .featured-project {
+    grid-column: 1 / -1;
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 48px; align-items: start;
+    background: var(--surface); border: 1px solid rgba(244,185,66,0.25);
+    border-radius: 16px; padding: 40px;
+  }
+  .featured-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    font-family: 'JetBrains Mono', monospace; margin-bottom: 8px;
+  }
+  .featured-project h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.7rem; color: var(--heading); margin-bottom: 14px; line-height: 1.25;
+  }
+  .live-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.82rem; font-weight: 600; color: var(--accent2);
+    text-decoration: none; transition: opacity 0.2s;
+  }
+  .live-link:hover { opacity: 0.75; }
+  .feature-list { display: flex; flex-direction: column; gap: 12px; }
+  .feature-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--surface2); border-radius: 10px; padding: 14px;
+  }
+  .feature-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+  .feature-item h5 { font-size: 0.85rem; color: var(--heading); margin-bottom: 2px; font-weight: 600; }
+  .feature-item p { font-size: 0.8rem; color: var(--muted); }
+
+  /* ── CASE STUDIES ── */
+  .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .case-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s;
+  }
+  .case-card:hover { transform: translateY(-3px); border-color: rgba(78,205,196,0.4); }
+  .case-header {
+    background: linear-gradient(135deg, rgba(78,205,196,0.08), rgba(244,185,66,0.05));
+    padding: 32px; border-bottom: 1px solid var(--border);
+  }
+  .case-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--muted); margin-bottom: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .case-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.3rem; color: var(--heading); line-height: 1.3; margin-bottom: 8px;
+  }
+  .case-card .tagline { font-size: 0.82rem; color: var(--muted); }
+  .case-body { padding: 28px; }
+
+  /* PRD Block inside case card */
+  .prd-full { }
+  .prd-badge {
+    display: inline-block;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    background: rgba(244,185,66,0.12); color: var(--accent); border: 1px solid rgba(244,185,66,0.25);
+    padding: 3px 10px; border-radius: 100px; margin-bottom: 18px;
+  }
+
+  /* ── SKILLS ── */
+  .skills-section { padding: 96px 48px; max-width: 1100px; margin: 0 auto; }
+  .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .skill-group {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px;
+  }
+  .skill-group h4 {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .skill-group ul { list-style: none; }
+  .skill-group li {
+    font-size: 0.86rem; color: var(--muted); padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .skill-group li:last-child { border-bottom: none; }
+  .skill-group li::before { content: '—'; color: var(--border); font-size: 0.75rem; }
+
+  /* ── EDUCATION ── */
+  .edu-list { display: flex; flex-direction: column; gap: 2px; }
+  .edu-item {
+    display: grid; grid-template-columns: 120px 1fr;
+    gap: 32px; align-items: start;
+    padding: 28px 0; border-bottom: 1px solid var(--border);
+  }
+  .edu-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem; color: var(--muted); padding-top: 4px;
+  }
+  .edu-body h3 { font-size: 1.05rem; color: var(--heading); font-weight: 600; margin-bottom: 4px; }
+  .edu-body p { font-size: 0.88rem; color: var(--muted); }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    padding: 96px 48px; text-align: center; position: relative; overflow: hidden;
+  }
+  .contact-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(244,185,66,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .contact-section h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2rem,4vw,3.2rem); color: var(--heading); margin-bottom: 16px;
+  }
+  .contact-section p { font-size: 1rem; color: var(--muted); max-width: 440px; margin: 0 auto 36px; }
+  .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text); font-size: 0.88rem; font-weight: 500;
+    padding: 12px 22px; border-radius: 10px;
+    text-decoration: none; transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 32px 48px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem; color: var(--muted);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ── FULL-WIDTH DIVIDERS ── */
+  .full-divider { border: none; border-top: 1px solid var(--border); margin: 0 48px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    section { padding: 64px 24px; }
+    .about-grid, .projects-grid, .case-grid, .skills-grid { grid-template-columns: 1fr; }
+    .featured-project { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .edu-item { grid-template-columns: 1fr; gap: 4px; }
+    .contact-section { padding: 64px 24px; }
+    footer { padding: 24px; }
+    .full-divider { margin: 0 24px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+  .fade-in.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Prachi Dalvi</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#prd-work">PRD Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <h1>Product-focused<br><em>builder & thinker</em></h1>
+      <p class="hero-sub">Electronics & Telecom engineering student who leads projects from problem statement to measurable outcome — with the technical depth to know what's feasible and the product instinct to know what matters.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">
+          View Projects
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-label">// at a glance</div>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-desc">End-to-end projects shipped</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2</div>
+          <div class="stat-desc">Full PRDs authored</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1</div>
+          <div class="stat-desc">Live web product built</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">B.E.</div>
+          <div class="stat-desc">Electronics & Telecom, 2023–Present</div>
+        </div>
+      </div>
+      <div class="skill-chips">
+        <span class="chip accent">User Stories</span>
+        <span class="chip teal">PRD Writing</span>
+        <span class="chip">User Research</span>
+        <span class="chip">IoT Systems</span>
+        <span class="chip">SQL ·Supabase</span>
+        <span class="chip">AI Tools</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="full-divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid fade-in">
+    <div class="about-body">
+      <div class="section-label">About</div>
+      <h2 class="section-title">Engineering rigour<br>meets product thinking.</h2>
+      <p>I'm a final-year Electronics & Telecommunication Engineering student at FAMT, Ratnagiri. Every hardware project I've led has followed the same arc a good PM would follow: <strong>define the problem, scope an MVP, iterate on feedback.</strong>.</p>
+      <p>From tuning a PID loop on a self-balancing robot (each iteration as a sprint) to scoping an RFID billing system for retail checkout, I've consistently operated at the intersection of <strong>technical constraints and user outcomes</strong>.</p>
+      <p>I also built '<strong>Perselo</strong>', a live web app for co-working focus sessions which gave me first-hand experience with product discovery, user flows, streak mechanics, and deployment.</p>
+      <p>I'm seeking a Product Management role where I can contribute from day one: conducting user research, writing user stories, running sprint, and turning vague briefs into clear product requirements.</p>
+    </div>
+    <div class="about-aside">
+      <div class="aside-block">
+        <h4>Currently</h4>
+        <p>B.E. Electronics & Telecom · FAMT Ratnagiri · 2023–Present</p>
+      </div>
+      <div class="aside-block">
+        <h4>Location</h4>
+        <p>Maharashtra, India</p>
+      </div>
+      <div class="aside-block">
+        <h4>Focus Areas</h4>
+        <div class="skills-list">
+          <span class="chip accent">Product Management</span>
+          <span class="chip teal">Agile Delivery</span>
+          <span class="chip">IoT Products</span>
+          <span class="chip">User Research</span>
+          <span class="chip">PRD Writing</span>
+          <span class="chip">Data Analysis</span>
+        </div>
+      </div>
+      <div class="aside-block">
+        <h4>AI Tools Used</h4>
+        <div class="skills-list">
+          <span class="chip">Claude</span>
+          <span class="chip">ChatGPT</span>
+          <span class="chip">Gemini</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header fade-in">
+    <div class="section-label">Projects</div>
+    <h2 class="section-title">Built end-to-end,<br>framed as products.</h2>
+    <p class="section-subtitle">Each project follows a PM-led arc: problem discovery → scoped requirements → iterative build → measurable outcome.</p>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="featured-project fade-in">
+      <div>
+        <div class="featured-label">✦ Featured — Live Product</div>
+        <span class="project-type type-web">Web App</span>
+        <h3>Perselo — Focus Partner Platform</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin-bottom:16px;line-height:1.75;">
+          A real-time co-working web app that matches users with focus partners worldwide or pairs them with an AI companion for distraction-free work sessions — complete with streak tracking and ambient sound environments.
+        </p>
+        <a href="https://perselo.vercel.app/" target="_blank" class="live-link" style="margin-bottom:16px;display:inline-flex;">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          perselo.vercel.app — live ↗
+        </a>
+        <div style="margin-top:8px;">
+          <button class="prd-toggle" onclick="togglePRD(this)">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+            View Product Requirements Document (PRD)
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="prd-panel">
+            <div class="prd-content">
+              <div class="prd-badge">PRD · v1.0</div>
+              <div class="meta-row">
+                <div class="meta-item"><span class="meta-key">Author: </span><span class="meta-val">Prachi Dalvi</span></div>
+                <div class="meta-item"><span class="meta-key">Status: </span><span class="meta-val">Shipped / Live</span></div>
+                <div class="meta-item"><span class="meta-key">Platform: </span><span class="meta-val">Web (Vercel)</span></div>
+              </div>
+              <div class="prd-section">
+                <h4>1. Problem Statement</h4>
+                <p>Remote workers, students, and freelancers often struggle with isolation, procrastination, and lack of accountability. Existing productivity tools focus on task management but ignore the social pressure that keeps people focused. Working alongside even a silent stranger has been shown to increase output — yet no accessible product existed to replicate this digitally.</p>
+              </div>
+              <div class="prd-section">
+                <h4>2. Goals & Success Metrics</h4>
+                <p>Goal: Help users enter and sustain deep-work states by providing human or AI accountability in real time.</p>
+                <div style="margin-top:10px;">
+                  <span class="outcome-badge">↑ Session start rate</span>
+                  <span class="outcome-badge">↑ Avg session length</span>
+                  <span class="outcome-badge">↑ Day-1 retention</span>
+                  <span class="outcome-badge">Streak continuity %</span>
+                </div>
+              </div>
+              <div class="prd-section">
+                <h4>3. User Stories </h4>
+                <div class="user-story-box">As a remote student, I want to work alongside a focus partner so that I stay on task without needing to join a video call.</div>
+                <div class="user-story-box">As a freelancer who works alone, I want an AI companion available when no one else is online so I never feel I'm starting alone.</div>
+              </div>
+              <div class="prd-section">
+                <h4>4. Feature Scope (MVP)</h4>
+                <ul>
+                  <li><strong>Real-time partner matching</strong> — auto-connect with another user currently searching</li>
+                  <li><strong>AI Companion fallback</strong> — instant pairing when no human is available</li>
+                  <li><strong>Session goal-setting</strong> — user declares intent before starting</li>
+                  <li><strong>Streak tracking</strong> — daily streak counter to build habit</li>
+                  <li><strong>Ambient sound modes</strong> — Rain, Café, Ocean, Silent to aid focus</li>
+                  <li><strong>Session stats dashboard</strong> — sessions today, total minutes, best focus</li>
+                  <li><strong>Google OAuth + username persistence</strong> — low-friction onboarding</li>
+                </ul>
+              </div>
+              <div class="prd-section">
+                <h4>5. Out of Scope (v1)</h4>
+                <ul>
+                  <li>Video/audio calls between partners</li>
+                  <li>Team/group sessions</li>
+                  <li>Paid tier / premium features</li>
+                </ul>
+              </div>
+              <div class="prd-section">
+                <h4>6. Key Trade-offs Made</h4>
+                <p>Chose text-based pairing over video to reduce friction and privacy concerns at MVP stage. Prioritised streak mechanics over advanced analytics — habit-formation is the core value driver. AI companion was scoped as a fallback, not primary, to preserve the human-connection positioning.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">🌍</div>
+            <div>
+              <h5>Global Matchmaking</h5>
+              <p>Real-time pairing with users worldwide searching for focus partners</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🤖</div>
+            <div>
+              <h5>AI Companion</h5>
+              <p>Always-available AI focus partner — no wait when no human is online</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔥</div>
+            <div>
+              <h5>Streak Mechanics</h5>
+              <p>Daily streak tracking drives habit formation and return visits</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🌊</div>
+            <div>
+              <h5>Ambient Sound Engine</h5>
+              <p>Rain, Ocean, Silent modes for deep work environments</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📊</div>
+            <div>
+              <h5>Session Analytics</h5>
+              <p>Personal stats: sessions today, total focus minutes, best streaks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <span class="project-type type-iot">IoT · Hardware</span>
+      <h3>Smart Shopping Trolley with Automated Billing</h3>
+      <p>RFID-based retail checkout system that eliminates manual billing. Scoped as an MVP to prove that checkout time could be eliminated for a standard basket, then demoed live to validate the concept.</p>
+      <button class="prd-toggle" onclick="togglePRD(this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+        View Product Framing
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="prd-panel">
+        <div class="prd-content">
+          <div class="prd-badge">Product Framing</div>
+          <div class="prd-section">
+            <h4>Problem</h4>
+            <p>Manual checkout at retail counters is slow and error-prone — a major friction point in the customer journey, especially during peak hours. Cashier errors and long queues hurt both customer satisfaction and store throughput.</p>
+          </div>
+          <div class="prd-section">
+            <h4>User Story</h4>
+            <div class="user-story-box">As a retail shopper, I want my bill to be calculated automatically as I add items to my cart, so I can skip the checkout queue entirely.</div>
+          </div>
+          <div class="prd-section">
+            <h4>Solution Approach</h4>
+            <p>Scoped an RFID-based MVP: each product carries an RFID tag, the trolley's reader auto-logs items and computes a running total. Requirements included component selection (RFID module, microcontroller), integration of a billing ledger, and a live display for the shopper.</p>
+          </div>
+          <div class="prd-section">
+            <h4>Outcome</h4>
+            <div>
+              <span class="outcome-badge">Manual billing eliminated</span>
+              <span class="outcome-badge">Live demo validated</span>
+              <span class="outcome-badge">Faster checkout proven</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <span class="project-type type-hw">Embedded · Control</span>
+      <h3>Self-Balancing Robot</h3>
+      <p>Two-wheeled robot with real-time PID balance correction. Treated as an iterative product: each tuning cycle was a sprint — define stability criteria, run, observe drift, adjust, repeat.</p>
+      <button class="prd-toggle" onclick="togglePRD(this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+        View Product Framing
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="prd-panel">
+        <div class="prd-content">
+          <div class="prd-badge">Product Framing</div>
+          <div class="prd-section">
+            <h4>Problem</h4>
+            <p>Two-wheeled robots are inherently unstable — they require continuous real-time correction to remain upright. The challenge was to define "stable" in measurable terms before building, then tune iteratively toward that target.</p>
+          </div>
+          <div class="prd-section">
+            <h4>Agile Approach</h4>
+            <p>Defined stability acceptance criteria upfront (minimal oscillation under 5°, sustained balance for 30s). Each PID tuning cycle acted as a sprint: hypothesize → tune → test → measure → iterate. Data from each run directly informed the next, mirroring a feedback-driven product loop.</p>
+          </div>
+          <div class="prd-section">
+            <h4>Outcome</h4>
+            <div>
+              <span class="outcome-badge">Stable real-time balance</span>
+              <span class="outcome-badge">Feedback loop validated</span>
+              <span class="outcome-badge">5 iteration cycles</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <span class="project-type type-hw">Embedded · IoT</span>
+      <h3>Bluetooth Controlled Car</h3>
+      <p>Wireless RC car with user-experience-first design: the interaction flow was defined before hardware was selected. Stable 8–10m control range, scoped to core functionality to keep the build testable and focused.</p>
+      <button class="prd-toggle" onclick="togglePRD(this)">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+        View Product Framing
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="prd-panel">
+        <div class="prd-content">
+          <div class="prd-badge">Product Framing</div>
+          <div class="prd-section">
+            <h4>Problem</h4>
+            <p>The core user need was reliable wireless control with minimal latency — not raw speed or range. Designed the control interaction flow first, then selected hardware to support that experience rather than defaulting to available components.</p>
+          </div>
+          <div class="prd-section">
+            <h4>Decision</h4>
+            <p>Deliberately scoped to four directional commands only, keeping the interface simple and testable. Chose HC-05 module with UART protocol for reliability within the target 10m range. Deferred advanced features (speed control, obstacle detection) to a potential v2.</p>
+          </div>
+          <div class="prd-section">
+            <h4>Outcome</h4>
+            <div>
+              <span class="outcome-badge">8–10m stable range</span>
+              <span class="outcome-badge">Minimal latency</span>
+              <span class="outcome-badge">MVP scoped cleanly</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- MINI PRDs -->
+<section id="prd-work">
+  <div class="section-header fade-in">
+    <div class="section-label">Mini PRDs</div>
+    <h2 class="section-title">Product Requirements.</h2>
+    <p class="section-subtitle">Mini PRDs written for two IoT products — translating engineering feasibility analyses into structured product requirements documents.</p>
+  </div>
+  <div class="case-grid">
+
+    <div class="case-card fade-in">
+      <div class="case-header">
+        <div class="case-num">P1</div>
+        <h3>Alzheimer Care & Tracking Device</h3>
+        <p class="tagline">Wearable GPS + IoT Safety & Care Management System</p>
+      </div>
+      <div class="case-body prd-full">
+        <div class="prd-badge">Document</div>
+        <div class="prd-section">
+          <h4>Overview & Purpose</h4>
+          <p>A wearable device for Alzheimer's patients that provides real-time GPS tracking, anomaly detection, and carer alerts — enabling safe, semi-independent living while giving caregivers peace of mind. This PRD translates a hardware feasibility study into actionable product requirements.</p>
+        </div>
+        <div class="prd-section">
+          <h4>Problem Statement</h4>
+          <p>Alzheimer's patients face a high risk of wandering and disorientation. Existing solutions (manual supervision, basic GPS trackers) are either intrusive, battery-draining, or lack caregiver-facing interfaces. The gap: a low-power, wearable, real-time system that combines location tracking with behavioural anomaly detection.</p>
+        </div>
+        <div class="prd-section">
+          <h4>Target Users</h4>
+          <div class="user-story-box">As a caregiver, I want real-time alerts when the patient exits a safe zone, so I can respond immediately without constant supervision.</div>
+          <div class="user-story-box">As a family member, I want a mobile dashboard showing the patient's current location and recent activity, so I have ongoing peace of mind.</div>
+        </div>
+        <div class="prd-section">
+          <h4>Functional Requirements</h4>
+          <ul>
+            <li>Real-time GPS location tracking with configurable geofence zones</li>
+            <li>Anomaly detection: irregular movement patterns trigger caregiver alert</li>
+            <li>Low-power BLE + GPS module (Neo-6M / SIM800L) for continuous operation</li>
+            <li>Push notifications to caregiver app on geofence breach</li>
+            <li>Fall detection via accelerometer data</li>
+            <li>Battery life ≥ 24 hours under active tracking</li>
+            <li>Wearable form factor: wrist or pendant-compatible</li>
+          </ul>
+        </div>
+        <div class="prd-section">
+          <h4>Non-Functional Requirements</h4>
+          <ul>
+            <li>Location accuracy: ≤ 10m under clear sky</li>
+            <li>Alert latency: ≤ 30 seconds from trigger to caregiver notification</li>
+            <li>Device weight: ≤ 80g for wearability</li>
+            <li>Data privacy: location data encrypted in transit and at rest</li>
+          </ul>
+        </div>
+        <div class="prd-section">
+          <h4>Constraints & Feasibility Notes</h4>
+          <p>GPS accuracy degrades indoors — hybrid BLE beacon fallback required for indoor environments. SIM800L requires cellular coverage; offline mode must cache last-known location. Hardware prototype validates component compatibility before software integration.</p>
+        </div>
+        <div class="prd-section">
+          <h4>Success Metrics (KPIs)</h4>
+          <div>
+            <span class="outcome-badge">Alert delivery &lt; 30s</span>
+            <span class="outcome-badge">Battery &gt; 24hr</span>
+            <span class="outcome-badge">Caregiver response rate ↑</span>
+            <span class="outcome-badge">Zero missed geofence events</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card fade-in">
+      <div class="case-header">
+        <div class="case-num">P2</div>
+        <h3>Sign Language Translator Glove</h3>
+        <p class="tagline">Standalone Wearable Gesture-to-Speech Communication Device</p>
+      </div>
+      <div class="case-body prd-full">
+        <div class="prd-badge">Document</div>
+        <div class="prd-section">
+          <h4>Overview & Purpose</h4>
+          <p>A wearable glove that translates hand gestures from sign language into spoken words in real time — enabling speech-impaired individuals to communicate naturally with hearing people without requiring an interpreter or companion device.</p>
+        </div>
+        <div class="prd-section">
+          <h4>Problem Statement</h4>
+          <p>The 70+ million deaf and speech-impaired people worldwide face daily communication barriers. Interpreter services are costly and unavailable in most everyday contexts. Existing solutions require a paired smartphone or are too expensive for widespread adoption. The gap: an affordable, self-contained, real-time gesture-to-speech device.</p>
+        </div>
+        <div class="prd-section">
+          <h4>Target Users</h4>
+          <div class="user-story-box">As a speech-impaired person, I want to communicate my intended words directly to others, so I don't need an interpreter present in everyday situations.</div>
+          <div class="user-story-box">As a healthcare worker, I want to understand a non-verbal patient's basic needs, so I can provide appropriate care quickly.</div>
+        </div>
+        <div class="prd-section">
+          <h4>Functional Requirements</h4>
+          <ul>
+            <li>Flex sensor array on each finger captures gesture angle in real time</li>
+            <li>MPU-6050 accelerometer/gyroscope captures hand orientation and motion</li>
+            <li>On-device ML model classifies gesture → mapped word/phrase</li>
+            <li>Text-to-speech module outputs recognised word audibly within 500ms</li>
+            <li>LCD display shows recognised text for environments where audio is inappropriate</li>
+            <li>Minimum gesture vocabulary: 26 alphabets + 50 common phrases</li>
+            <li>Standalone operation — no paired smartphone required</li>
+          </ul>
+        </div>
+        <div class="prd-section">
+          <h4>Non-Functional Requirements</h4>
+          <ul>
+            <li>Recognition accuracy: ≥ 90% on trained gesture set</li>
+            <li>Response latency: ≤ 500ms from gesture to audio output</li>
+            <li>Form factor: full glove, comfortably wearable for 4+ hours</li>
+            <li>Battery: ≥ 8 hours continuous use on single charge</li>
+          </ul>
+        </div>
+        <div class="prd-section">
+          <h4>Constraints & Feasibility Notes</h4>
+          <p>Flex sensor accuracy varies with individual hand size — calibration routine required at first use. On-device inference constrained by microcontroller memory; model must be quantised (TFLite). Ambient noise degrades TTS intelligibility — display fallback is essential requirement, not nice-to-have.</p>
+        </div>
+        <div class="prd-section">
+          <h4>Success Metrics (KPIs)</h4>
+          <div>
+            <span class="outcome-badge">≥ 90% accuracy</span>
+            <span class="outcome-badge">Latency ≤ 500ms</span>
+            <span class="outcome-badge">8hr battery life</span>
+            <span class="outcome-badge">50+ phrase vocabulary</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="section-header fade-in">
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">What I bring<br></h2>
+  </div>
+  <div class="skills-grid fade-in">
+    <div class="skill-group">
+      <h4>Product</h4>
+      <ul>
+        <li>PRD Writing</li>
+        <li>User Stories</li>
+        <li>User Research</li>
+        <li>Documentation</li>
+        <li>Roadmapping</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Data & Analysis</h4>
+      <ul>
+        <li>Microsoft Excel</li>
+        <li>Basic SQL</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Technical</h4>
+      <ul>
+        <li>Microcontroller Programming</li>
+        <li>Embedded & IoT Systems</li>
+        <li>Basic RTOS</li>
+        <li>Prototyping & Debugging</li>
+        <li>Communication Protocols</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h4>Soft Skills</h4>
+      <ul>
+        <li>Cross-Functional Teamwork</li>
+        <li>Analytical Thinking</li>
+        <li>Problem Solving</li>
+        <li>Leadership</li>
+        <li>Adaptability</li>
+        <li>Time Management</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header fade-in">
+    <div class="section-label">Education</div>
+    <h2 class="section-title">Academic background.</h2>
+  </div>
+  <div class="edu-list fade-in">
+    <div class="edu-item">
+      <div class="edu-year">2023 — Present</div>
+      <div class="edu-body">
+        <h3>B.E. in Electronics & Telecommunication Engineering with Honors Degree in ALML</h3>
+        <p>Finolex Academy of Management & Technology, Ratnagiri — Specialising in embedded systems, IoT, microcontroller programming, and product development methodology.</p>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">Completed</div>
+      <div class="edu-body">
+        <h3>Higher Secondary Certificate (HSC)</h3>
+        <p>Kudal High School and Junior College, Kudal — Science stream: Physics, Chemistry, Mathematics, Computer Science.</p>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">Completed</div>
+      <div class="edu-body">
+        <h3>Secondary School Certificate (SSC)</h3>
+        <p>Sai Holy Faith High School, Nirawade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- CONTACT -->
+<div class="contact-section">
+  <div style="position:relative;z-index:1;">
+    <div class="section-label" style="text-align:center;margin-bottom:16px;">Contact</div>
+    <h2>Let's build something together.</h2>
+    <p>Open to PM internships, product collaborations, and conversations about IoT products or user-centred design.</p>
+    <div class="contact-links">
+      <a href="mailto:prachipdalvi2895@gmail.com" class="contact-link">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        prachipdalvi2895@gmail.com
+      </a>
+      <a href="https://perselo.vercel.app/" target="_blank" class="contact-link">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Perselo (live product)
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Prachi Dalvi · Maharashtra, India </p>
+  <p style="margin-top:6px;">
+    <a href="https://prachidalvi285.github.io/">Portfolio</a> 
+  </p>
+</footer>
+
+<script>
+  // PRD toggle
+  function togglePRD(btn) {
+    const panel = btn.nextElementSibling;
+    btn.classList.toggle('open');
+    panel.classList.toggle('open');
+  }
+
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  faders.forEach(f => observer.observe(f));
+</script>
+</body>
+</html>
